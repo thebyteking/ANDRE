@@ -12,7 +12,10 @@
 
     html,
     body {
-      height: 100%;
+	width: 100%;
+    min-height: 100%;
+    margin: 0;
+    height: 100%;
       margin: 0;
       font-family: Arial, sans-serif;
     }
@@ -20,6 +23,7 @@
     body {
       display: grid;
       grid-template-rows: 80px auto 1fr;
+      min-height: 100vh;
     }
 
     header {
@@ -95,20 +99,40 @@
   </style>
 </head>
 
-<body>
+<body min-height: 100vh;>
   <header>
-    <h1>Andre Rieu Concert July 3, 2027</h1>
+    <h1>Andre Rieu Concert July 3, 2027</h1> &nbsp; &nbsp;&nbsp;
+    <button id="fullscreenButton">Go full screen</button>
+
+<!-- THIAS SCRIPT CLICKS THE BUTTON -->
+	<script>
+		document.fullscreenElement.click()
+	</script>
+
+<!-- THIS IS THE SCRIPT THAT GETS CONTROL WHEN THE FULL SCREEN BUTTON IN CLICKED. -->
+	<script>
+	  document.getElementById("fullscreenButton").addEventListener("click", async () => {
+	    if (!document.fullscreenElement) {
+	      fullscreenButton.hidden=true
+	      await document.documentElement.requestFullscreen();
+	    } else {
+	      await document.exitFullscreen();
+	    }
+	  });
+</script>
   </header>
 
   <nav aria-label="Main menu">
     <ul class="menu">
       <li><a href="pages/home.html" target="content">HOME</a></li>
 
+      <li><a href="pages/flights.html" target="content">ITINERARY</a></li>   <!-- ITINERARY -->
 
       <li>
         <a href="pages/amsterdam.html" target="content">AMSTERDAM</a>
         <ul class="submenu">
           <li><a href="pages/amsterdam.html" target="content">Amsterdam overview</a></li>
+      	  <li><a href="pages/AMS_TODOS.html" target="content">Things to do in Amsterdam</a></li>
       	  <li><a href="pages/faq.html" target="content">FAQ</a></li>
           <!-- Add Amsterdam submenu items here -->
         </ul>
@@ -122,10 +146,18 @@
         </ul>
       </li>
 
-      <li><a href="pages/flights.html" target="content">ITINERARY</a></li>
+      <li>
+        <a href="pages/budget.html" target="content">BUDGET</a>
+        <ul class="submenu">
+          <li><a href="pages/budget.html" target="content">Budget</a></li>
+        </ul>
+      </li>
+
     </ul>
   </nav>
 
+
+  <!-- ONCE A LINK IS CLICKED IT GOES HERE -->
   <main>
     <iframe
       name="content"
