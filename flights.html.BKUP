@@ -1,0 +1,208 @@
+
+<head>
+<style>
+  .zoom {
+    width: 100px; /* set your desired base width */
+    transition: transform .2s; /* animation speed: 0.2 seconds */
+    margin: 0 20px; /* adds space so the image doesn't overlap others when scaling */
+    cursor: pointer;
+  }
+
+  .zoom:hover {
+    transform: scale(4.0); /* 1.5 makes the image 150% of its original size */
+  }
+</style>
+
+</head>
+
+<body>
+<font face=arial>
+<h2>This is our itinerary</h2>
+
+
+<table align=center width=98% border="1" cellspacing="0" style="font-family: arial, sans-serif; font-size: 10pt;">
+  <tr>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+    <th>Sunday</th>
+  </tr>
+  <tr>
+    <!-- day 1 --><td valign=top><b><font color=maroon>Jun 28</font></b><br>
+    	<font size=1 >
+		Booking code: <B>ZKQHRC</B><BR>
+    	<font size=1 COLOR=BLUE>
+    	Operated by KLM, <B>KL606</B> 	Boeing 787-10 Duration: 10h20 , Premium Comfort<BR>
+    	<FONT COLOR=MAROON>
+    	MICHAEL WITHROW     Ticket number:0742145945417    KLM: <br>
+    	<FONT COLOR=RED>
+    	LINDA WITHROW		Ticket number:0742145945416<br>
+     	<FONT COLOR=NAVY>
+   		Explore amsterdam
+    	</td>
+
+    <!-- day 2 --><td valign=top><b><font color=maroon>Jun 29</font></b><br>
+    	<font size=1>
+    	CLAYTON HOTEL CHECKIN TIME IS 3:00PM<BR>
+    	<a href="https://www.hotels.com/ho1364006624/hard-rock-hotel-amsterdam-american-amsterdam-netherlands/?chkin=2026-11-19&chkout=2026-11-20&x_pwa=1&rfrr=HSR&pwa_ts=1793915131141&referrerUrl=aHR0cHM6Ly93d3cuaG90ZWxzLmNvbS9Ib3RlbC1TZWFyY2g%3D&useRewards=false&rm1=a2&regionId=378&destination=Amsterdam%2C+North+Holland%2C+Netherlands&destType=MARKET&neighborhoodId=553248635976381941&selected=42593957&latLong=52.37304%2C4.89237&sort=RECOMMENDED&top_dp=329&top_cur=USD&gclid=57f76548cd3d1885f82d0fa435c8f7d8&semcid=HCOM-US.UB.BING.PT-c-EN.HOTEL&semdtl=a1422602469.b11339206425927896.g1kwd-83701552236126%3Aloc-190.e1c.m157f76548cd3d1885f82d0fa435c8f7d8.r1.c1.j185629.k1152104.d183700749571676.h1e.i1.l1.n1.o1.p1.q1.s1.t1.x1.f1.u1.v1.w1&userIntent=&selectedRoomType=324344392&selectedRatePlan=394232511&expediaPropertyId=42593957&searchId=978c257b-d951-4dc3-b5f7-a5c23d7abf94&containsVideo=false" target=_clayton>
+    	See the Hotel</a>
+    	</td>
+
+
+
+    <!-- day 3 --><td valign=top><b><font color=maroon>Jun 30</font></b><br>
+               <font size=1>
+			Explore amsterdam
+            </td>
+
+             </td>
+
+    <!-- day 4 --><td valign=top rowspan=2><b><font color=maroon>Jul 1</font></b><br>
+    <font size=1>
+
+    Check out of Clayton Hotel<br>
+    Travel to Maastricht by
+    <a href="https://www.omio.com/app/search-frontend/results/L25B95F90FCA5498DB69550C1195E5379/bus?locale=en&_gl=1%2Agp4h2g%2A_up%2AMQ..%2A_ga%2AMTAyNzY0NzYzOS4xNzkzOTE2ODcx%2A_ga_NKKMJY4RRV%2AczE3OTM5MTY4NzEkbzEkZzAkdDE3OTM5MTY4NzEkajYwJGwwJGgxNzE5MjQ1NTA3&origin_domain=com" target = _bus>
+    bus</a>
+, check in to hotel in Maastricht for 1 night. Attend the Terrace event.
+<br>
+(See the Maastricht hotel in the cell to the right.)
+    </td>
+
+    <!-- day 5 --><td valign=top rowspan=2><b><font color=maroon>Jul 2</font></b><br>
+    	<font size=1>
+    	Enjoy the concert at a terrace event<br>
+    	Actual ticket will be emailed about 1 week priot to the event.
+		<a href="https://www.theateraanhetvrijthof.nl/en/general/belangrijke-informatie-terrasarrangementen-andre-rieu" target = _conditions>
+		There are conditionsS.
+		</a>
+		</td>
+    <!-- day 6 --><td valign=top><b><font color=maroon>Jul 3</font></b><br>
+    		<font size=1>
+    		Check out of Terrace Hotel. Check in to fancy hotel.<br>
+            <b>Concert 2-3pm<br></td>
+
+    <!-- day 7 --><td valign=top><b><font color=maroon>Jul 4</font></b><br>
+        	<font size=1>
+
+    		Travel back to Amsterdam airport and the US
+
+    		</td>
+
+  </tr>
+
+
+
+	<tr font size=6>
+	<!-- Sunday -->
+	<td valign=top>
+		<font size=1>
+    	Afternoon: Flight leaves SFO 3:10pm<br> <br>
+    	Evening: Flying<br> <br>
+    	<A HREF="https://www.schiphol.nl/en/prepare-for-your-flight-at-schiphol/ees/" TARGET=EES>EUR ENTRY SYSTEM (EES)</A>
+	</td>
+	<!-- Monday -->
+	<td valign=top>
+    	<font size=1>
+    	Morning: Flight <b>arrives</b> in AMS 09:05<br>
+		Afternoon: Clayton Hotel Checkin<br> <br>
+    	Evening: <br> <br>
+
+	</td>
+	<!-- Tuesday -->
+	<td valign=top>
+
+	</td>
+	<!-- Wednesday -->
+	<td valign=top>
+
+
+	</td>
+	<!-- Thursday -->
+	<!-- Saturday -->
+	<td valign=top><font size=1>
+		Check out of Kruisherenhotel and take the bus to the airport.
+	</td>
+
+	</tr>
+
+
+	<tr>
+		<td><font size=1> </td>
+		<td><font size=1>Clayton Hotel</td>
+		<td><font size=1>Clayton Hotel</td>
+		<td><font size=1>Clayton Hotel</td>
+		<td><font size=1><A HREF="https://www.tripadvisor.com/Hotel_Review-g188575-d232262-Reviews-Bastion_Hotel_Maastricht_Centrum-Maastricht_Limburg_Province.html#COMMERCE-COLLAPSED"
+		     TARGET=BASTION>Bastion Hotel Maastricht Centrum</A></td>
+		<td><font size=1>Kruisherenhotel Hotel</td>
+		<td><font size=1>----</td>
+	</tr>
+
+
+
+
+	<tr>
+	<td valign=top>
+    	<img src="../img/plane-1.jpg" class=zoom>
+	</td>
+	<td valign=top>
+	    <img src="../img/clayton_hotel.png" class=zoom>
+	</td>
+	<td valign=top>
+    	<img src="../img/clayton 2.png" class=zoom>
+	</td>
+	<td valign=top>
+    	<img src="../img/clayton 3.png" class=zoom>
+	</td>
+	<td valign=top>
+    	<img src="../img/bastion-hotel-maastricht.jpg" width=20 class=zoom>
+	</td>
+	<td valign=top>
+    	<img src="../img/andre 1.jpg" class=zoom>
+	</td>
+	<td valign=top>
+    	<img src="../img/plane-2.jpg" class=zoom>
+	</td>
+
+	</tr>
+
+	<tr>
+	<td valign=top>
+		<font size=1>
+		Flight to Amsterdam
+    	<A href=null>Docs</a>
+	</td>
+	<td valign=top>
+		<font size=1>
+    	<A href="../docs/clayton_reservation.png" target=docs1>Amsterdam Reservation</a>
+	</td>
+	<td valign=top>
+		<font size=1>
+    	<A href="../docs/clayton_reservation.png" target=docs1>More Clayton</a>
+	</td>
+	<td valign=top>
+		<font size=1>
+   		<A href="../docs/clayton_reservation.png" target=docs1>More Clayton</a>
+	</td>
+	<td valign=top>
+		<font size=1>
+    	<A href="../docs/Maastricht Central.png" target=centrel>Mastricht Hotel Reservation</a>
+	</td>
+	<td valign=top>
+		<font size=1>
+    	<A href="../docs/AndreRieu  Booking.png" target=ARBK>Show Confirmation</a>
+	</td>
+	<td valign=top>
+		<font size=1>Flight home
+    	<A href=null>Docs</a>
+	</td>
+
+	</tr>
+
+</table>
+
+
+</body>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trip Budget</title>
+  <style>
+    body {
+      max-width: 1000px;
+      margin: 32px auto;
+      padding: 0 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+      font-size: 10px;
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 6px;
+      border: 0;
+      font: inherit;
+    }
+
+    tfoot { font-weight: bold; }
+
+    button {
+      margin-top: 12px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Trip Budget</h1>
+  <div id="spreadsheet"></div>
+
+  <script>
+    const storageKey = "tripBudgetSpreadsheet";
+
+    function createSpreadsheet(container) {
+      const columns = ["Item", "Cost", "Paid Already", "Notes"];
+      const defaultItems = [
+        "Roundtrip flight to Amsterdam",
+        "Hotel in Amsterdam",
+        "TRAVEL FROM AMSTERDAM TO MAASTRICHT BY BUS",
+        "FIRST NIGHT HOTEL IN MAASTRICHT",
+        "TERRACE BOOKING FOR FIRST NIGHT",
+        "CONCERT AND HOTEL FOR 2ND NIGHT",
+        "TRAVEL FROM MAASTRICHT TO AMSTERDAM BY BUS",
+      ];
+
+      let savedRows;
+      try {
+        savedRows = JSON.parse(localStorage.getItem(storageKey));
+      } catch {
+        savedRows = null;
+      }
+
+      const rows = Array.isArray(savedRows)
+        ? savedRows
+        : defaultItems.map((item) => [item, "", "", ""]);
+
+      const table = document.createElement("table");
+      const header = table.createTHead().insertRow();
+
+      columns.forEach((name) => {
+        const th = document.createElement("th");
+        th.textContent = name;
+        header.appendChild(th);
+      });
+
+      const body = table.createTBody();
+      const totalRow = table.createTFoot().insertRow();
+
+      const totalLabel = totalRow.insertCell();
+      totalLabel.textContent = "Total";
+
+      const totalCell = totalRow.insertCell();
+      totalCell.style.textAlign = "right";
+
+      totalRow.insertCell();
+      totalRow.insertCell();
+
+      function saveRows() {
+        const currentRows = Array.from(body.rows, (row) =>
+          Array.from(row.cells, (cell) => cell.querySelector("input").value)
+        );
+        localStorage.setItem(storageKey, JSON.stringify(currentRows));
+      }
+
+      function updateTotal() {
+        const total = Array.from(body.rows).reduce((sum, row) => {
+          return sum + (Number(row.cells[1].querySelector("input").value) || 0);
+        }, 0);
+
+        totalCell.textContent = total.toFixed(2);
+      }
+
+      function addRow(values = ["", "", "", ""]) {
+        const row = body.insertRow();
+
+        columns.forEach((column, index) => {
+          const cell = row.insertCell();
+          const input = document.createElement("input");
+
+          input.type = index === 1 ? "number" : "text";
+          if (index === 1) input.step = "0.01";
+          input.value = values[index] ?? "";
+          input.setAttribute("aria-label", column);
+
+          input.addEventListener("input", () => {
+            updateTotal();
+            saveRows();
+          });
+
+          cell.appendChild(input);
+        });
+      }
+
+      rows.forEach((values) => addRow(values));
+
+      const addButton = document.createElement("button");
+      addButton.type = "button";
+      addButton.textContent = "Add row";
+      addButton.addEventListener("click", () => {
+        addRow();
+        saveRows();
+      });
+
+      container.replaceChildren(table, addButton);
+      updateTotal();
+    }
+
+    createSpreadsheet(document.querySelector("#spreadsheet"));
+  </script>
+</body>
+</html>
