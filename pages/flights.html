@@ -12,6 +12,62 @@
     transform: scale(4.0); /* 1.5 makes the image 150% of its original size */
   }
 </style>
+
+<!-- DEFINE THE POPOUT -->
+<style>
+  table { border-collapse: collapse; width: 50%; }
+  td { border: 1px solid black; padding: 8px; cursor: pointer; }
+  td:hover { background-color: #f0f0f0; }
+
+  /* The Overlay (Hidden by default) */
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  /* The Enlarged Content Box */
+  #expanded-content {
+    background: lemonchiffon;
+    padding: 40px;
+    border-radius: 8px;
+    <!-- font-size: calc(10em + 16px); -->
+   font-size: 24px;
+   line-height: 1.4;
+    max-width: 80%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  #expanded-content * {
+    font-size: inherit !important;
+}
+</style>
+<!-- END OF POPOUT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 
 <body>
@@ -30,11 +86,18 @@
     <th>Sunday</th>
   </tr>
   <tr>
-    <!-- day 1 --><td valign=top><b><font color=maroon>Jun 28</font></b><br>
-    	<font size=1>
-    	Fly from SFO to Amsterdam arrive  (NOTBOOKED YET)<br>
-    	Explore amsterdam
-		<a href="https://www.trivago.com/en-US/lm/clayton-hotel-amsterdam-american?search=100-42102;dr-20270627-20270630;drs-40;rc-1-2#accommodation-overlay" target=_flight>Flight<a>
+    <!-- day 1 --><td valign=top onclick="enlarge(this)">
+        <b><font color=maroon size=1>Jun 28</b><br>
+		Booking code: <B>ZKQHRC</B><BR>
+    	<font COLOR=BLUE>
+    	Operated by KLM, <B>KL606</B> 	Boeing 787-10 Duration: 10h20 , Premium Comfort<BR>
+    	<FONT COLOR=MAROON>
+    	MICHAEL WITHROW     Ticket number:0742145945417    KLM: <br>
+    	<FONT COLOR=RED>
+    	LINDA WITHROW		Ticket number:0742145945416<br>
+     	<FONT COLOR=NAVY>
+   		Explore amsterdam <b>(FIGGER OUT HOW TO ENLARGE THIS)</B>
+   		</font>
     	</td>
 
     <!-- day 2 --><td valign=top><b><font color=maroon>Jun 29</font></b><br>
@@ -95,6 +158,7 @@
 		<font size=1>
     	Afternoon: Flight leaves SFO 3:10pm<br> <br>
     	Evening: Flying<br> <br>
+    	<A HREF="https://www.schiphol.nl/en/prepare-for-your-flight-at-schiphol/ees/" TARGET=EES>EUR ENTRY SYSTEM (EES)</A>
 	</td>
 	<!-- Monday -->
 	<td valign=top>
@@ -114,13 +178,6 @@
 
 	</td>
 	<!-- Thursday -->
-	<td valign=top>
-
-	</td>
-	<!-- Friday -->
-	<td valign=top>
-
-	</td>
 	<!-- Saturday -->
 	<td valign=top><font size=1>
 		Check out of Kruisherenhotel and take the bus to the airport.
@@ -203,5 +260,26 @@
 
 </table>
 
+<!-- This hidden div acts as the "enlarged" view -->
+<div id="overlay" onclick="closeEnlarge()">
+  <div id="expanded-content"></div>
+</div>
+
+<!-- SCRIPTS ARE HERE -->
+<script>
+  function enlarge(cell) {
+    const overlay = document.getElementById('overlay');
+    const content = document.getElementById('expanded-content');
+
+    // Copy the HTML from the clicked cell into the overlay
+    content.innerHTML = cell.innerHTML;
+    // Show the overlay
+    overlay.style.display = 'flex';
+  }
+
+  function closeEnlarge() {
+    document.getElementById('overlay').style.display = 'none';
+  }
+</script>
 
 </body>
