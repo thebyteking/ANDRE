@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TODOS</title>
+
+</head>
+<body>
+	<FONT FACE=ARIAL color=maroon>
+	<table width=90% align=center>
+	<tr>
+	<td>
+		<UL>
+		<hr>
+			<LI><b>GET DETAILED INSTRUCTIONS ON HOW TO GET FROM SHIPOL AIRPORT TO THE AMS HOTEL. HOTEL SHUTTLE? </b><br>
+			The easiest option is **Bus 397**:<BR>
+			<OL>
+				1. At Schiphol, follow signs to the bus terminal outside Schiphol Plaza.
+				2. Take **Amsterdam Airport Express bus 397** to **Leidseplein** (about 30–40 minutes).
+				3. The hotel is just around the corner from the stop at **Leidsekade 97**. <citation src="2,5"></citation>
+			</OL>
+			Alternatively, take a train to **Amsterdam Centraal**, then tram **2 or 12** to Leidseplein.
+			<br>
+			<button id="openImage">Show image</button>
+
+
+			</LI>
+
+
+			<hr>
+			<LI><b>SAME THING FOR TRAVEL FROM AMS HOTEL TO MAASTRICHT. WHERE IS THE TRAIN STATION?</b>
+			<A HREF="https://www.google.com/maps/@50.8496635,5.704835,50a,90y,82.98h,104.41t/data=!3m10!1e1!3m8!1swt8BZVJ6zSlM8PNZYjYVbQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-14.405107739926578%26panoid%3Dwt8BZVJ6zSlM8PNZYjYVbQ%26yaw%3D82.98109735563396!7i16384!8i8192!9m2!1b1!2i47?entry=ttu&g_ep=EgoyMDI2MTExMC4wIKXMDSoASAFQAw%3D%3D"
+			      TARGET=maastricht1>Click Here</a>Get a taxi. 10 minutes.
+
+			<br>
+
+			</LI>
+			<hr>
+
+			<LI><b>HOW TO CANCEL A RESERVATION</b><br>
+			Most things can be cancelled if done well ahead of when they are due to occur.
+			   <ol>
+			        <li>KLM FLIGHTS. <A HREF="https://www.klm.com/refund" TARGET=KLM1>REFUND SITE, Booking code: ZKQHRC</A>
+			        <LI>CLAYTON HOTEL AMSTERDAM. <A HREF="https://www.hotels.com/trips/73582580627202/details/MTM2NmMwZTQtOWFlOC01YTc3LWIyYjYtYzQxZTA4Y2E5Njg1O2VlZWZkOTlkLTcyODctNGYyYy04MThjLWYxNDBjYTY0MTE0Nl8wOzA?siteid=300000001&cta=ctaModule.HCom_Itinerary_V1.link&EMLCID=HCOM-US.TRC.UNKWN.2d3d033161682fd9668bed9f3714038c.EML&EMLDTL=DATE20261114-LANGEN_US.TESTX.VERSX.CAT02G255.MOD666184"
+			        TARGET=CLAYTON1>GO HERE AND PICK "CANCEL BOOKING" ON THE LEFT SIDE</A></LI>
+			        <LI>TERRACE PROGRAM IN MAASTRICHT. Made thru booking.com.
+			        <a href="https://secure.booking.com/confirmation.html?aid=304142&label=gen173nr-10CCsoggI46AdIMVgEaIkCiAEBmAEzuAEXyAEM2AED6AEB-AEBiAIBqAIBuAKbyOLXBsACAdICJDU3NDAxYTI2LTI1OWEtNGNiMy04MTY4LWU0ZTVlY2ZkZDVkMdgCAeACAQ&sid=a5c5de8d4fd8d3e1302691da1671d41b&auth_key=L73J4f37w9y9GX1Z&refermyreservations=1&source=myreservations&" target=bastion>
+			        Bastion hotel booking</a> Then pick "Cancellation Options"
+			        </LI>
+			        <LI>THE ANDRE RIEU CONCERT AND HOTEL. <b>So far, it appears that these things cannot be cancelled. They recommend buying cancellation
+			        insurance. Stay tuned for more.</LI>
+			   </ol>
+			</LI>
+
+			<hr>
+			<LI><b>WHAT TO DO IN A MEDICAL EMERGENCY</b><br>
+			<a href="https://www.iamsterdam.com/en/live-work-study/living/healthcare-insurance/emergency-services-healthcare-helplines" target=emergency>
+			Click here</a>
+			</LI>
+
+			<LI><b>GET TRAVEL INSURANCE FOR THE WHOLE TRIP</b><br>
+			</LI>
+
+
+		</UL>
+	</TD>
+ </tr></table>
+Buying train tickets in advance:<br>
+Yes. You can buy Amsterdam–Maastricht tickets in advance on NS.nl or in the NS app, and buy both legs for your chosen dates.
+A regular ticket is for a route and date, not a specific train; discounted advance fares may have tighter time restrictions
+and may not be changeable or refundable, so check the conditions before paying.
+
+
+<!-- SCRIPTS ETC HERE -->
+
+
+<dialog id="imagePopup">
+  <button id="closeImage" aria-label="Close">×</button>
+  <img src="../img/airport_to_hotel.png" alt="Map">
+</dialog>
+
+<script>
+  const popup = document.querySelector("#imagePopup");
+
+  document.querySelector("#openImage").addEventListener("click", () => {
+    popup.showModal();
+  });
+
+  document.querySelector("#closeImage").addEventListener("click", () => {
+    popup.close();
+  });
+
+  popup.addEventListener("click", (event) => {
+    if (event.target === popup) popup.close();
+  });
+</script>
+
+
+
+
+
+</body>
+</html>
