@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>YouTube Video List</title>
   <style>
+    .layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
     #videoscreen {
-      width: min(100%, 900px);
+      width: min(70vw, 900px);
       aspect-ratio: 16 / 9;
       background: #111;
-      margin-bottom: 1rem;
+      flex: 0 1 900px;
     }
 
     #videoscreen iframe {
@@ -18,22 +24,45 @@
       border: 0;
     }
 
+    #video-list {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
     #video-list li {
-      margin: 0.5rem 0;
+      margin: 0 0 0.75rem;
+    }
+
+    @media (max-width: 700px) {
+      .layout {
+        flex-direction: column;
+      }
+
+      #videoscreen {
+        width: 100%;
+        flex: none;
+      }
     }
   </style>
 </head>
 <body>
-  <font face=arial>
-  <h1>Useful Videos V2</h1>
+  <h1>Videos</h1>
 
-  <div id="videoscreen" aria-label="Video player"></div>
-  <ul id="video-list"></ul>
+  <div class="layout">
+    <div id="videoscreen" aria-label="Video player"></div>
+    <ul id="video-list"></ul>
+  </div>
 
   <script>
-    const videoUrls = [
-      "https://youtu.be/RKtnyCbO8jk",
-      "https://youtu.be/VIDEO_ID_2"
+    const videos = [
+      {
+        title: "My useful video title",
+        url: "https://youtu.be/RKtnyCbO8jk"
+      },
+      {
+        title: "Another video title",
+        url: "https://youtu.be/ANOTHER_VIDEO_ID"
+      }
     ];
 
     const videoList = document.getElementById("video-list");
@@ -63,15 +92,17 @@
       return null;
     }
 
-    videoUrls.forEach((url, index) => {
+    videos.forEach((video) => {
+      const item = document.createElement("li");
       const link = document.createElement("a");
-      link.href = url;
-      link.textContent = `Play video ${index + 1}`;
+
+      link.href = video.url;
+      link.textContent = video.title;
 
       link.addEventListener("click", (event) => {
         event.preventDefault();
 
-        const videoId = getYouTubeId(url);
+        const videoId = getYouTubeId(video.url);
         if (!videoId) {
           alert("That doesn't look like a supported YouTube URL.");
           return;
@@ -79,8 +110,9 @@
 
         const iframe = document.createElement("iframe");
         iframe.referrerPolicy = "strict-origin-when-cross-origin";
-        iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1`;
-        iframe.title = `YouTube video ${index + 1}`;
+        iframe.src =
+          `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1`;
+        iframe.title = video.title;
         iframe.allow =
           "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.allowFullscreen = true;
@@ -88,7 +120,6 @@
         videoScreen.replaceChildren(iframe);
       });
 
-      const item = document.createElement("li");
       item.appendChild(link);
       videoList.appendChild(item);
     });
