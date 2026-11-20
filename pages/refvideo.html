@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Video List</title>
+  <style>
+    #videoscreen {
+      width: min(100%, 900px);
+      aspect-ratio: 16 / 9;
+      background: #111;
+      margin-bottom: 1rem;
+    }
+
+    #videoscreen iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    #video-list li {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <font face=arial>
+  <h1>Useful Videos V2</h1>
+
+  <div id="videoscreen" aria-label="Video player"></div>
+  <ul id="video-list"></ul>
+
+  <script>
+    const videoUrls = [
+      "https://youtu.be/RKtnyCbO8jk",
+      "https://youtu.be/VIDEO_ID_2"
+    ];
+
+    const videoList = document.getElementById("video-list");
+    const videoScreen = document.getElementById("videoscreen");
+
+    function getYouTubeId(url) {
+      try {
+        const parsedUrl = new URL(url);
+        const host = parsedUrl.hostname.replace(/^www\./, "");
+
+        if (host === "youtu.be") {
+          return parsedUrl.pathname.slice(1);
+        }
+
+        if (host === "youtube.com" || host === "m.youtube.com") {
+          if (parsedUrl.pathname === "/watch") {
+            return parsedUrl.searchParams.get("v");
+          }
+
+          const match = parsedUrl.pathname.match(/^\/(?:embed|shorts)\/([^/]+)/);
+          return match ? match[1] : null;
+        }
+      } catch {
+        return null;
+      }
+
+      return null;
+    }
+
+    videoUrls.forEach((url, index) => {
+      const link = document.createElement("a");
+      link.href = url;
+      link.textContent = `Play video ${index + 1}`;
+
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const videoId = getYouTubeId(url);
+        if (!videoId) {
+          alert("That doesn't look like a supported YouTube URL.");
+          return;
+        }
+
+        const iframe = document.createElement("iframe");
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1`;
+        iframe.title = `YouTube video ${index + 1}`;
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+
+        videoScreen.replaceChildren(iframe);
+      });
+
+      const item = document.createElement("li");
+      item.appendChild(link);
+      videoList.appendChild(item);
+    });
+  </script>
+</body>
+</html>
